@@ -4,9 +4,15 @@ import pyautogui
 import time
 
 def clicar_olho():
+    # workaround for long pages
+    pyautogui.click(602, 464)
+    pyautogui.press('pagedown')
+    time.sleep(0.5)
 
     location = pyautogui.locateOnScreen('imgs/olho.png', confidence=0.9,
-                                grayscale=True, region=(1500, 0, 300, 1200))
+                                grayscale=True, region=(900, 0, 300, 1200))
+    # location = pyautogui.locateOnScreen('imgs/olho.png', confidence=0.9,
+    #                             grayscale=True, region=(1500, 0, 300, 1200))
     if location:
         print('Achou olho')
         # print(location)
